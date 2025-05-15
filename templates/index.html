@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Berita Terbaru Hari Ini</title>
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Berita Terbaru Hari Ini</h1>
+        </header>
+
+        <section class="news-section">
+            <div class="news-container">
+                <h2>Kompas</h2>
+                {% if kompas %}
+                    <ul class="news-list">
+                        {% for headline in kompas %}
+                            <li>{{ headline }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>Tidak ada berita dari Kompas.</p>
+                {% endif %}
+            </div>
+
+            <div class="news-container">
+                <h2>Detik.com</h2>
+                {% if detik %}
+                    <ul class="news-list">
+                        {% for headline in detik %}
+                            <li>{{ headline }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>Tidak ada berita dari Detik.com.</p>
+                {% endif %}
+            </div>
+        </section>
+    </div>
+</body>
+</html>
