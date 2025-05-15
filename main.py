@@ -47,7 +47,6 @@ def filtering(media_name):
     if media_name == "kompas":
         return "h1", "hlTitle"
     elif media_name == "detik":
-        # Detik headline biasanya ada di <h2> dengan class 'media__title'
         return "h2", "media__title"
     return "", None
 
