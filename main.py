@@ -10,14 +10,6 @@ load_dotenv()
 app = Flask(__name__)
 
 
-# Tentukan elemen dan class berdasarkan media
-def filtering(media_name):
-    if media_name == "kompas":
-        return "h1", "hlTitle"
-    elif media_name == "detik":
-        return "h2", "media__title"
-    return "", None
-
 
 def scrape_news(media_name, url):
     try:
@@ -28,7 +20,6 @@ def scrape_news(media_name, url):
         news_list = []
 
         if media_name == "kompas":
-            # Struktur: <div class="hlItem"><a href="..."><h1 class="hlTitle">Judul</h1></a></div>
             items = soup.find_all('div', class_='hlItem')
             for item in items:
                 a_tag = item.find('a', href=True)
@@ -39,7 +30,6 @@ def scrape_news(media_name, url):
                     news_list.append({"title": title_text, "link": link})
 
         elif media_name == "detik":
-            # Struktur: <h2 class="media__title"><a href="...">Judul</a></h2>
             headlines = soup.find_all("h2", class_="media__title")
             for headline in headlines:
                 link_tag = headline.find('a', href=True)
