@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8" />
@@ -15,28 +15,25 @@
         <section class="news-section">
             <div class="news-container">
                 <h2>Kompas</h2>
-                {% if kompas %}
-                    <ul class="news-list">
-                        {% for headline in kompas %}
-                            <li>{{ headline }}</li>
-                        {% endfor %}
-                    </ul>
+                <ul class="news-list">
+                {% for berita in kompas %}
+                    <li><a href="{{ berita.link }}" target="_blank">{{ berita.title }}</a></li>
                 {% else %}
                     <p>Tidak ada berita dari Kompas.</p>
-                {% endif %}
+                {% endfor %}
+                </ul>
             </div>
 
+            <!-- Detik -->
             <div class="news-container">
                 <h2>Detik.com</h2>
-                {% if detik %}
-                    <ul class="news-list">
-                        {% for headline in detik %}
-                            <li>{{ headline }}</li>
-                        {% endfor %}
-                    </ul>
+                <ul class="news-list">
+                {% for berita in detik %}
+                    <li><a href="{{ berita.link }}" target="_blank">{{ berita.title }}</a></li>
                 {% else %}
                     <p>Tidak ada berita dari Detik.com.</p>
-                {% endif %}
+                {% endfor %}
+                </ul>       
             </div>
         </section>
     </div>
